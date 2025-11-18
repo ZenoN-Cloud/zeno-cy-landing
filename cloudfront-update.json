@@ -1,9 +1,0 @@
-{
-  "Id": "S3-zeno-cy-landing",
-  "DomainName": "zeno-cy-landing.s3-website.eu-central-1.amazonaws.com",
-  "CustomOriginConfig": {
-    "HTTPPort": 80,
-    "HTTPSPort": 443,
-    "OriginProtocolPolicy": "http-only"
-  }
-}

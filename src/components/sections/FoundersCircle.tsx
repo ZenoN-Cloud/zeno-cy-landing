@@ -38,11 +38,21 @@ export function FoundersCircle({ content }: { content: FounderCTAContent & { eye
     }
     try {
       setStatus("loading");
-      const response = await fetch("/api/request-access", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+      // Create mailto link with form data
+      const subject = encodeURIComponent("Beta Access Request - Zeno CY");
+      const body = encodeURIComponent(`
+Email: ${form.email}
+Company Size: ${form.companySize}
+Banks: ${form.banks.join(", ")}
+Feature Requests: ${form.pain || "None"}
+Submitted: ${new Date().toLocaleString()}
+      `);
+      
+      // Open email client
+      window.open(`mailto:max@zeno-cy.com?subject=${subject}&body=${body}`, '_blank');
+      
+      // Simulate successful response
+      const response = { ok: true };
       if (!response.ok) throw new Error("Request failed");
       setStatus("success");
     } catch (error) {
