@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+
 import { HeroContent } from "@/content/sections";
 import { PrimaryButton } from "@/components/ui/PrimaryButton";
 import { GlassCard } from "@/components/ui/GlassCard";

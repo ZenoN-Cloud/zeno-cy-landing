@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+
 import { sectionsCopy } from "@/content/sections";
 import { translations } from "@/content/translations";
 import { useLanguage } from "@/context/LanguageContext";
@@ -8,14 +8,14 @@ import { Hero } from "@/components/sections/Hero";
 import { DemoLink } from "@/components/sections/DemoLink";
 import { PrivacyHook } from "@/components/sections/PrivacyHook";
 import { FeatureRoadmap } from "@/components/sections/FeatureRoadmap";
-import { TrustSignals } from "@/components/sections/TrustSignals";
+
 import { FoundersCircle } from "@/components/sections/FoundersCircle";
 import { LanguageMenu } from "@/components/sections/LanguageMenu";
 
 export default function Home() {
   const { currentLanguage } = useLanguage();
   const t = translations[currentLanguage as keyof typeof translations] || translations.en;
-  const { roadmap, trust } = sectionsCopy;
+  const { roadmap } = sectionsCopy;
   
   const hero = {
     ...sectionsCopy.hero,

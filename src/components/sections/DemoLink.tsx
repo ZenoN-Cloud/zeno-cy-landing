@@ -4,10 +4,22 @@ import { motion } from "framer-motion";
 import { ArrowRight, FileText, Sparkles } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { translations } from "@/content/translations";
+import { useMemo } from "react";
 
 export function DemoLink() {
   const { currentLanguage } = useLanguage();
   const t = translations[currentLanguage as keyof typeof translations]?.demo || translations.en.demo;
+  
+  const particles = useMemo(() => {
+    const values = [0.2, 0.7, 0.1, 0.9, 0.4, 0.6];
+    return Array.from({ length: 6 }).map((_, i) => ({
+      id: i,
+      initialY: values[i] * 400,
+      finalY: values[(i + 3) % 6] * 400,
+      duration: 3 + values[i] * 2,
+    }));
+  }, []);
+  
   return (
     <motion.section
       className="relative overflow-hidden rounded-3xl border border-lime-200/30 bg-gradient-to-br from-lime-400/10 via-emerald-400/10 to-lime-300/10 p-8 md:p-12"
@@ -17,20 +29,20 @@ export function DemoLink() {
     >
       {/* Animated background particles */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(6)].map((_, i) => (
+        {particles.map((particle) => (
           <motion.div
-            key={i}
+            key={particle.id}
             className="absolute h-2 w-2 rounded-full bg-lime-300/30"
-            initial={{ x: -100, y: Math.random() * 400 }}
+            initial={{ x: -100, y: particle.initialY }}
             animate={{
               x: [null, 800],
-              y: [null, Math.random() * 400],
+              y: [null, particle.finalY],
               opacity: [0, 1, 0],
             }}
             transition={{
-              duration: 3 + Math.random() * 2,
+              duration: particle.duration,
               repeat: Infinity,
-              delay: i * 0.5,
+              delay: particle.id * 0.5,
             }}
           />
         ))}
