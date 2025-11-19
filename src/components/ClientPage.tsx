@@ -32,8 +32,8 @@ export function ClientPage() {
   return (
     <div className="relative overflow-hidden bg-transparent">
       <div className="absolute inset-0 opacity-30">
-        <div className="absolute -top-24 left-1/3 h-96 w-96 rounded-full bg-lime-300 blur-[180px]" />
-        <div className="absolute top-1/4 -right-20 h-[28rem] w-[28rem] rounded-full bg-emerald-400 blur-[220px]" />
+        <div className="absolute -top-24 left-1/3 h-96 w-96 rounded-full bg-lime-300 blur-[80px] md:blur-[180px]" />
+        <div className="absolute top-1/4 -right-20 h-[28rem] w-[28rem] rounded-full bg-emerald-400 blur-[100px] md:blur-[220px]" />
       </div>
       <main className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col gap-20 px-6 py-14 sm:px-12 md:px-16">
         <header className="flex items-center justify-between">

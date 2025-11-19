@@ -1,18 +1,24 @@
 "use client";
 
-
 import { HeroContent } from "@/content/sections";
 import { PrimaryButton } from "@/components/ui/PrimaryButton";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export function Hero({ content }: { content: HeroContent }) {
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
+
   return (
     <motion.section 
       className="grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-center"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: isMobile ? 0.3 : 0.6 }}
     >
       <div className="space-y-6">
         <p className="text-sm uppercase tracking-[0.4em] text-lime-200">
@@ -51,10 +57,11 @@ export function Hero({ content }: { content: HeroContent }) {
             className="h-full w-full"
             src={content.demoVideo.src}
             poster={content.demoVideo.poster}
-            autoPlay
+            autoPlay={!isMobile}
             muted
             loop
             playsInline
+            preload={isMobile ? "none" : "metadata"}
           />
           <div className="absolute inset-0 rounded-3xl border border-white/20" />
           <div className="absolute bottom-4 left-4 rounded-full bg-black/60 px-4 py-1 text-sm text-white">
