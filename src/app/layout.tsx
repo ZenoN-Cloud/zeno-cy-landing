@@ -5,13 +5,17 @@ import "./globals.css";
 const display = Space_Grotesk({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["700"],
+  display: 'swap',
+  preload: true,
 });
 
 const body = Inter({
   variable: "--font-body",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500"],
+  display: 'swap',
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -59,6 +63,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body className={`${display.variable} ${body.variable} antialiased`}>
         <LanguageProvider>
           {children}
