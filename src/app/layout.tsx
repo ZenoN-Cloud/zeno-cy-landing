@@ -23,11 +23,6 @@ export const metadata: Metadata = {
   title: "Zeno CY · Privacy-first bank CSV automation",
   description:
     "Normalize Cyprus bank statements in minutes without ever uploading data to third-party clouds.",
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-  },
   openGraph: {
     title: "Zeno CY",
     description:
