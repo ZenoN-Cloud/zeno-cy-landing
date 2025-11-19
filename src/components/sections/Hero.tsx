@@ -10,7 +10,10 @@ export function Hero({ content }: { content: HeroContent }) {
   const [isMobile, setIsMobile] = useState(false);
   
   useEffect(() => {
-    setIsMobile(window.innerWidth < 768);
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   return (
@@ -62,6 +65,8 @@ export function Hero({ content }: { content: HeroContent }) {
             loop
             playsInline
             preload={isMobile ? "none" : "metadata"}
+            width="1920"
+            height="1080"
           />
           <div className="absolute inset-0 rounded-3xl border border-white/20" />
           <div className="absolute bottom-4 left-4 rounded-full bg-black/60 px-4 py-1 text-sm text-white">

@@ -50,12 +50,14 @@ export function ClientPage() {
         <header className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/10 shadow-lg shadow-black/30 ring-1 ring-white/20">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/logo_zeno.png"
                 alt="Zeno CY logo"
                 className="h-8 w-8 rounded-full object-cover"
+                width="32"
+                height="32"
                 loading="eager"
-                fetchPriority="high"
               />
             </div>
             <div>
