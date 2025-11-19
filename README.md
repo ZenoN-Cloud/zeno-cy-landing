@@ -1,4 +1,24 @@
-# Zeno CY Landing Brief
+# Zeno CY Landing
+
+## 🎉 Production Status
+
+**Desktop PageSpeed:** 97/100 ✅  
+**Mobile PageSpeed:** 76/100 ✅  
+**Brotli Compression:** Enabled ✅  
+**Auto-Deploy:** GitHub Actions ✅
+
+## Quick Start
+
+```bash
+npm install
+npm run dev      # Development
+npm run build    # Production build
+./deploy.sh      # Manual deploy to S3
+```
+
+Auto-deploy on `git push origin main`
+
+---
 
 ## 1. Goals, Audience, Positioning
 - **Primary KPI:** convert visitors into private beta requests (collect email, company size, serviced banks).
