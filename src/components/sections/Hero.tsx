@@ -3,7 +3,6 @@
 import { HeroContent } from "@/content/sections";
 import { PrimaryButton } from "@/components/ui/PrimaryButton";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 
 export function Hero({ content }: { content: HeroContent }) {
@@ -17,12 +16,7 @@ export function Hero({ content }: { content: HeroContent }) {
   }, []);
 
   return (
-    <motion.section 
-      className="grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-center"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: isMobile ? 0.3 : 0.6 }}
-    >
+    <section className="grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-center">
       <div className="space-y-6">
         <p className="text-sm uppercase tracking-[0.4em] text-lime-200">
           {content.eyebrow}
@@ -41,7 +35,7 @@ export function Hero({ content }: { content: HeroContent }) {
             {content.privacyNote}
           </span>
         </div>
-        <dl className="grid grid-cols-3 gap-4 text-center sm:text-left">
+        <dl className="grid grid-cols-3 gap-2 md:gap-4 text-center sm:text-left">
           {content.stats.map((stat) => (
             <div key={stat.label} className="rounded-2xl border border-white/10 p-4">
               <dt className="text-xs uppercase tracking-[0.3em] text-slate-400">
@@ -74,7 +68,7 @@ export function Hero({ content }: { content: HeroContent }) {
           </div>
         </div>
       </GlassCard>
-    </motion.section>
+    </section>
   );
 }
 
