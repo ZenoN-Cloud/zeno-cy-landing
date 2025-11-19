@@ -6,10 +6,21 @@ import { translations } from "@/content/translations";
 import { useLanguage } from "@/context/LanguageContext";
 import { Hero } from "@/components/sections/Hero";
 
-const DemoLink = dynamic(() => import("@/components/sections/DemoLink").then(m => ({ default: m.DemoLink })), { ssr: false });
-const PrivacyHook = dynamic(() => import("@/components/sections/PrivacyHook").then(m => ({ default: m.PrivacyHook })));
-const FeatureRoadmap = dynamic(() => import("@/components/sections/FeatureRoadmap").then(m => ({ default: m.FeatureRoadmap })));
-const FoundersCircle = dynamic(() => import("@/components/sections/FoundersCircle").then(m => ({ default: m.FoundersCircle })));
+import { SectionSkeleton } from "@/components/ui/Skeleton";
+
+const DemoLink = dynamic(() => import("@/components/sections/DemoLink").then(m => ({ default: m.DemoLink })), { 
+  ssr: false,
+  loading: () => <SectionSkeleton />
+});
+const PrivacyHook = dynamic(() => import("@/components/sections/PrivacyHook").then(m => ({ default: m.PrivacyHook })), {
+  loading: () => <SectionSkeleton />
+});
+const FeatureRoadmap = dynamic(() => import("@/components/sections/FeatureRoadmap").then(m => ({ default: m.FeatureRoadmap })), {
+  loading: () => <SectionSkeleton />
+});
+const FoundersCircle = dynamic(() => import("@/components/sections/FoundersCircle").then(m => ({ default: m.FoundersCircle })), {
+  loading: () => <SectionSkeleton />
+});
 const LanguageMenu = dynamic(() => import("@/components/sections/LanguageMenu").then(m => ({ default: m.LanguageMenu })), { ssr: false });
 
 export function ClientPage() {

@@ -8,6 +8,7 @@ const display = Space_Grotesk({
   weight: ["700"],
   display: 'swap',
   preload: true,
+  adjustFontFallback: true,
 });
 
 const body = Inter({
@@ -16,6 +17,7 @@ const body = Inter({
   weight: ["400", "500"],
   display: 'swap',
   preload: true,
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {
@@ -64,8 +66,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preload" href="/logo_zeno.png" as="image" fetchPriority="high" />
       </head>
       <body className={`${display.variable} ${body.variable} antialiased`}>
         <LanguageProvider>
